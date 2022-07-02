@@ -1,0 +1,6 @@
+<p-sidebar [(visible)]="display" [baseZIndex]="10000">
+  <h1 style="font-weight:normal">Menu</h1>
+  <p-listbox [options]="routes" [(ngModel)]="selectedRoute" optionLabel="label"></p-listbox>
+</p-sidebar>
+
+<p-button type="text" (click)="display = true" icon="pi pi-bars"></p-button>

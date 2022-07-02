@@ -1,0 +1,12 @@
+:host ::ng-deep {
+
+    .p-listbox {
+        border: 0;
+    }
+    
+    .p-sidebar-header, .p-sidebar-content {
+        padding: 0;
+        text-align: center
+    }
+
+}
