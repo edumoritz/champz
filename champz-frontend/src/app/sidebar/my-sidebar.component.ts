@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,14 +12,20 @@ export class MySidebarComponent implements OnInit {
   routes: any[] = [];
   selectedRoute: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.routes = [
-      {label: 'Cadastro de competidores', routerLink: ['/pagename']},
-      {label: 'Cadastro de academias', routerLink: ['/pagename']},
-      {label: 'Cadastro de categorias', routerLink: ['/pagename'], queryParams: {'recent': 'true'}}
+      {label: 'Home', routerLink: '/home'},
+      {label: 'Cadastro de competidores', routerLink: '/register-competitor'},
+      {label: 'Cadastro de academias', routerLink: '/register-team'},
+      {label: 'Cadastro de categorias', routerLink: '/register-category'}
     ]
+  }
+
+  navigate() {
+    this.display = false;
+    this.router.navigate([this.selectedRoute.routerLink]);
   }
 
 }
