@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     SidebarModule,
     ButtonModule,
     ListboxModule,
-    FormsModule
+    FormsModule 
   ],
   exports: [MySidebarComponent],
   declarations: [MySidebarComponent]

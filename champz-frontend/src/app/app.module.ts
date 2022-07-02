@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MySidebarModule } from './sidebar/sidebar/my-sidebar.module';
+import { MySidebarModule } from './sidebar/my-sidebar.module';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { MySidebarModule } from './sidebar/sidebar/my-sidebar.module';
     AppRoutingModule,
     MySidebarModule
   ],
-  providers: [],
+  providers: [], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
