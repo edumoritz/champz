@@ -1,3 +1,17 @@
-<p>
-  register-team works!
-</p>
+<div class="field col-12">
+  <div class="flex flex-column align-items-center justify-content-center">
+
+    <div class="field col-12 md:col-4">
+      <input id="float-input" type="text" placeholder="Nome" pInputText> 
+    </div>
+    
+    <div class="field col-12 md:col-4">
+      <input id="float-input" type="text" placeholder="Iniciais" pInputText> 
+    </div>
+    
+    <div class="field col-12 md:col-4">
+      <p-dropdown inputId="dropdown" placeholder="Cidade" [autoDisplayFirst]="false" [options]="cities" optionLabel="name"></p-dropdown>
+    </div>
+
+  </div> 
+</div>
