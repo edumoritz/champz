@@ -1,5 +1,5 @@
+import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,8 +11,8 @@ import { MySidebarModule } from './sidebar/my-sidebar.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,    
     AppRoutingModule,
+    CoreModule,    
     MySidebarModule
   ],
   providers: [], 

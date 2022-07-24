@@ -6,5 +6,9 @@
 }
 
 .init {
-    background-color: var(--gray-100);
+    background-color: var(--surface-card);
+	font-family: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+	color: whitesmoke;
 }

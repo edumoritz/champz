@@ -1,17 +1,38 @@
 <div class="field col-12">
-  <div class="flex flex-column align-items-center justify-content-center">
+  <form [formGroup]="formTeam" (ngSubmit)="onSubmit()" #form="ngForm">
 
-    <div class="field col-12 md:col-4">
-      <input id="float-input" type="text" placeholder="Nome" pInputText> 
-    </div>
-    
-    <div class="field col-12 md:col-4">
-      <input id="float-input" type="text" placeholder="Iniciais" pInputText> 
-    </div>
-    
-    <div class="field col-12 md:col-4">
-      <p-dropdown inputId="dropdown" placeholder="Cidade" [autoDisplayFirst]="false" [options]="cities" optionLabel="name"></p-dropdown>
-    </div>
+    <div class="flex flex-column align-items-center justify-content-center">
 
-  </div> 
+      <div class="field col-12 md:col-4">
+        <input id="float-input" type="text" placeholder="Nome" formControlName="name" pInputText> 
+        <small class="form-text text-success"
+            *ngIf="formTeam.get('name')?.valid && formTeam.get('name')?.touched"
+          >Ok</small>
+          <small class="form-text text-danger"
+            *ngIf="!formTeam.get('name')?.valid && formTeam.get('name')?.touched"
+          >Nome inválido</small>        
+      </div>
+      
+      <div class="field col-12 md:col-4">
+        <input id="float-input" type="text" placeholder="Iniciais" formControlName="initials" pInputText> 
+        <small class="form-text text-success"
+            *ngIf="formTeam.get('initials')?.valid && formTeam.get('initials')?.touched"
+          >Ok</small>
+          <small class="form-text text-danger"
+            *ngIf="!formTeam.get('initials')?.valid && formTeam.get('initials')?.touched"
+          >Iniciais inválida</small>  
+      </div>
+      
+      <div class="field col-12 md:col-4">
+        <p-dropdown inputId="dropdown" placeholder="Cidade" [autoDisplayFirst]="false" [options]="cities" optionLabel="name" formControlName="city_state"></p-dropdown>
+      </div>
+  
+      <div class="field col-12 md:col-4 flex justify-content-between flex-wrap">
+        <button pButton pRipple type="button" label="Cancelar" class="p-button-raised p-button-secondary"></button>
+        <button pButton pRipple type="submit" label="Salvar" class="p-button-raised" [disabled]="formTeam.invalid"></button>
+      </div>
+  
+    </div> 
+  </form>
+  
 </div>
