@@ -1,3 +1,68 @@
-<p>
-  register-competitor works!
-</p>
+<div class="card">
+  <form [formGroup]="formCompetitor" (ngSubmit)="onSubmit()" #form="ngForm">
+
+    <div class="flex flex-column align-items-center justify-content-center">
+
+      <div class="flex field col-12 md:col-4">
+        <div class="flex flex-column mr-3" style="width: 100%;">
+          <input id="float-input" type="text" placeholder="Nome" formControlName="name" pInputText> 
+          <small class="form-text text-success"
+            *ngIf="formCompetitor.get('name')?.valid && formCompetitor.get('name')?.touched"
+          >Ok</small>
+          <small class="form-text text-danger"
+            *ngIf="!formCompetitor.get('name')?.valid && formCompetitor.get('name')?.touched"
+          >Nome inválido</small>    
+        </div>
+        
+        <div class="flex flex-column" style="width: 100%;">
+          <input id="float-input" type="number" placeholder="Idade" formControlName="age" pInputText> 
+          <small class="form-text text-success"
+            *ngIf="formCompetitor.get('age')?.valid && formCompetitor.get('age')?.touched"
+          >Ok</small>
+          <small class="form-text text-danger"
+            *ngIf="!formCompetitor.get('age')?.valid && formCompetitor.get('age')?.touched"
+          >Campo obrigatório</small> 
+        </div>       
+      </div>
+
+
+      <div class="flex field col-12 md:col-4">
+        <div class="flex flex-column mr-3" style="width: 100%;">
+          <input id="float-input" type="number" placeholder="Peso" formControlName="weight" pInputText> 
+          <small class="form-text text-success"
+              *ngIf="formCompetitor.get('weight')?.valid && formCompetitor.get('weight')?.touched"
+            >Ok</small>
+            <small class="form-text text-danger"
+              *ngIf="!formCompetitor.get('weight')?.valid && formCompetitor.get('weight')?.touched"
+            >Campo obrigatório</small>        
+        </div>
+  
+        <div class="flex flex-column" style="width: 100%;">
+          <p-dropdown inputId="dropdown" placeholder="Faixa" 
+            [autoDisplayFirst]="false" [options]="belts" 
+            optionLabel="colorPT" formControlName="belt"
+          ></p-dropdown>
+        </div>
+      </div>
+
+      <div class="flex field col-12 md:col-4">
+        <div class="flex flex-column mr-3" style="width: 100%;">     
+            <p-dropdown inputId="dropdown" placeholder="Equipe" 
+            [autoDisplayFirst]="false" [options]="teams" 
+            optionLabel="team_name" optionValue="id" formControlName="idTeam" 
+          ></p-dropdown>
+        </div>
+  
+        <div class="flex flex-column" style="width: 100%;">
+          <p-autoComplete [suggestions]="filterCategories" (completeMethod)="search($event)" formControlName="idCategory"></p-autoComplete>
+        </div>
+      </div>
+
+      <div class="field flex flex-row justify-content-center flex-wrap" style="width: 100%;">
+        <button pButton pRipple type="button" label="Cancelar" class="p-button-raised p-button-secondary mr-2"></button>
+        <button pButton pRipple type="submit" label="Salvar" class="p-button-raised" [disabled]="formCompetitor.invalid"></button>
+      </div>
+    </div>
+
+  </form>
+</div>
